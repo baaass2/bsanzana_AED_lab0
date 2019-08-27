@@ -13,7 +13,6 @@ Aminoacido::Aminoacido() {
 Aminoacido::Aminoacido (string nombre, int numero) {
     this->nombre = nombre;
 	this->numero = numero;
-	this-> atomos = atomos;
 }
 
 string Aminoacido::get_nombre() {
@@ -25,7 +24,7 @@ int Aminoacido::get_numero() {
 }
 
 void Aminoacido::add_atomo(Atomo at) {
-	atomos.push_back(at);
+	this->atomos.push_back(at);
 
 }
 

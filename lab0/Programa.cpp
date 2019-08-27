@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <string>
 using namespace std;
 #include "Proteina.h"
 #include "Cadena.h"
@@ -70,51 +71,45 @@ int main () {
 				//}
 			//}
 		//}
-		
+		Coordenada coo = Coordenada (0,0,4);
+        
+        Atomo atomo = Atomo ("nom_atom", 123);
+        
+        Aminoacido aa = Aminoacido("nom_aa", 12323);
 
-        Proteina p = Proteina("WENA", "123");
-        Cadena c = Cadena("A");
-        p.add_cadena(c);
-        Aminoacido a = Aminoacido("ALA", 12323);
-        c.add_aminoacido(a);
-        Atomo at = Atomo ("NITRO", 123);
-        a.add_atomo(at);
-        Coordenada co = Coordenada (1, 2, 3);
-        at.set_coordenada(co);
+        Cadena cadena = Cadena("letra_cad");
 
+        Proteina p = Proteina("nom_proteina", "id_proteina");
+        
+        atomo.set_coordenada(coo);    
+        aa.add_atomo(atomo);
+        cadena.add_aminoacido(aa);
+        p.add_cadena(cadena);
 		proteina.push_back(p);
-
-        for (Proteina p1 : proteina){
-		    list<Cadena>cadenas = p1.get_cadenas();
-		    for(Cadena c1: cadenas){
-			    list<Aminoacido> aa = c1.get_aminoacidos();
-			    cout << aa.size() << endl;
-            }
-        }
-
+     
+    cout << "---------------------" << endl;
 	cout << "PROTEINAS INGRESADAS" << endl;
+	cout << "---------------------" << endl;
+
+
 	for (Proteina p1 : proteina){
-        cout << p1.get_nombre() << endl;
-		cout << p1.get_id() << endl;
-		list<Cadena>cadenas = p1.get_cadenas();
+        cout << "Nombre de proteina: " << p1.get_nombre() << endl;
+		cout << "ID de proteina: " << p1.get_id() << endl;
 
-		for(Cadena c1: cadenas){
-			cout << c1.get_letra() << endl;
-			list<Aminoacido> aa = c1.get_aminoacidos();
-			cout << aa.size() << endl;
+		for(Cadena c: p1.get_cadenas() ){
+			cout << "Letra de Cadena: " << c.get_letra() << endl;
 
-			for(Aminoacido a1: aa){
-				cout << a1.get_nombre() << endl;
-				cout << a1.get_numero() << endl;
-		    	list<Atomo> at = a1.get_atomos();
+			for(Aminoacido a: c.get_aminoacidos() ){
+				cout << "Siglas de AA: " << a.get_nombre() << endl;
+				cout << "Numero de AA: " << a.get_numero() << endl;
 				
-				for(Atomo at1: at){
-					cout << at1.get_nombre() << endl;
-					cout << at1.get_numero() << endl;
-					Coordenada co = at1.get_coordenada();
-					cout << co.get_x() << endl;
-					cout << co.get_y() << endl;
-					cout << co.get_z() << endl;	
+				for(Atomo at: a.get_atomos() ){
+					cout <<"Nombre de Atomo: " << at.get_nombre() << endl;
+					cout <<"Numero de Atomo: " << at.get_numero() << endl;
+					Coordenada co = at.get_coordenada();
+					cout << "Coordenada X: " << co.get_x() << endl;
+					cout << "Coordenada Y: " << co.get_y() << endl;
+					cout << "Coordenada Z: " << co.get_z() << endl;
 				}
 			}
 		}

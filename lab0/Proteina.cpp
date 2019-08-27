@@ -15,10 +15,9 @@ Proteina::Proteina() {
 Proteina::Proteina (string nombre, string id) {
     this->nombre = nombre;
     this->id = id;
-	this->cadenas = cadenas;
+	//this->cadenas = cadenas;
 }
 
-/* métodos get and set */
 string Proteina::get_nombre() {
     return this->nombre;
 }
@@ -28,7 +27,7 @@ string Proteina::get_id() {
 }
 
 void Proteina::add_cadena(Cadena c) {
-	cadenas.push_back(c);
+	this->cadenas.push_back(c);
 
 }
 

@@ -12,7 +12,7 @@ Cadena::Cadena() {
 
 Cadena::Cadena (string letra) {
     this->letra = letra;
-	this-> aminoacidos = aminoacidos;
+	//this-> aminoacidos = aminoacidos;
 }
 
 string Cadena::get_letra() {
@@ -20,7 +20,7 @@ string Cadena::get_letra() {
 }
 
 void Cadena::add_aminoacido(Aminoacido a) {
-	aminoacidos.push_back(a);
+	this->aminoacidos.push_back(a);
 
 }
 

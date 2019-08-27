@@ -4,9 +4,9 @@ using namespace std;
 #include "Coordenada.h"
 
 Coordenada::Coordenada() {
-    float x = 0;
-	float y = 1;
-	float z = 0;
+    float x = 2;
+	float y = 2;
+	float z = 2;
 }
 
 Coordenada::Coordenada (float x, float y, float z) {
@@ -32,7 +32,7 @@ void Coordenada::set_x(float x) {
 }
 
 void Coordenada::set_y(float y) {
-    this->x = y;
+    this->y = y;
 }
 
 void Coordenada::set_z(float z) {

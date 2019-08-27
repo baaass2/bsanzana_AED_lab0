@@ -13,7 +13,6 @@ Atomo::Atomo() {
 Atomo::Atomo (string nombre, int numero) {
     this->nombre = nombre;
 	this->numero = numero;
-	this->coordenada = coordenada;
 }
 
 string Atomo::get_nombre() {
@@ -34,9 +33,9 @@ void Atomo::set_nombre(string nombre) {
 }
 
 void Atomo::set_numero(int numero) {
-    this->numero;
+    this->numero = numero;
 }
 
 void Atomo::set_coordenada(Coordenada coordenada){
-	this->coordenada;
+	this->coordenada = coordenada;
 }
