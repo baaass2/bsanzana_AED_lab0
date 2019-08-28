@@ -8,85 +8,8 @@ using namespace std;
 #include "Atomo.h"
 #include "Coordenada.h"
 
-void imprimir_datos_proteina() {
+void imprimir_datos_proteina(list<Proteina> proteina) {
 
-    //cout << p.get_nombre() << endl;
-	//cout << p.get_id << endl;
-}
-
-
-
-int main () {
-	list<Proteina> proteina;
-
-	//int num_prote;
-	//string id_prote;
-	//string nom_prote;
-
-	//string let_cad;
-	//int num_cad;
-
-	//string nom_aa;
-	//int num_aa;
-	//int num_aas;
-	
-	//string nom_atomo;
-	//int num_atomo;
-	//int num_atomos;
-
-	//float x;
-	//float y;
-	//float z;
-	
-	//cout <<"¿Cuantas proteinas ingresará?: "; cin>>num_prote;
-
-	//for(int i=0; i<num_prote; i++){
-		//cout <<"¿Id de proteina? : "; cin>>id_prote;
-		//cout <<"¿Nombre de proteina? : "; cin>>nom_prote;				
-		//Proteina p = Proteina(nom_prote, id_prote);
-
-		//cout <<"¿Cuantas cadenas tiene su proteina? : "; cin>>num_cad;
-		//for(int j=0; j<num_cad; j++){
-			//cout <<"¿Letra de Cadena? : "; cin>>let_cad;
-			//Cadena c = Cadena(let_cad);
-			//p.add_cadena(c);
-			//cout <<"¿Cuantos AA tiene su cadena? : "; cin>>num_aas;
-			//for(int k=0; k<num_aas; k++){
-				////cout <<"¿Siglas de su AA? : "; cin>>nom_aa;
-				////cout <<"¿Numero de su AA? : "; cin>>num_aa;
-				//Aminoacido a = Aminoacido(nom_aa, num_aa);
-				//c.add_aminoacido(a);
-				
-				//cout <<"¿Cuantos Atomos tiene su AA? : "; cin>>num_atomos;
-				//for(int l=0; l<num_atomos; l++){
-					//cout <<"¿Nombre de su Atomo del AA? : "; cin>>nom_atomo;
-					//cout <<"¿Numero de su Atomo del AA? : "; cin>>num_atomo;
-					//Atomo at = Atomo(nom_atomo, num_atomo);
-					//a.add_atomo(at);
-					//cout <<"¿Coordenada x del Atomo? : "; cin>>x;
-					//cout <<"¿Coordenada y del Atomo? : "; cin>>y;
-					//cout <<"¿Coordenada z del Atomo? : "; cin>>z;
-					//Coordenada co = Coordenada(x, y, z);
-					//at.set_coordenada(co);
-				//}
-			//}
-		//}
-		Coordenada coo = Coordenada (0,0,4);
-        
-        Atomo atomo = Atomo ("nom_atom", 123);
-        
-        Aminoacido aa = Aminoacido("nom_aa", 12323);
-
-        Cadena cadena = Cadena("letra_cad");
-
-        Proteina p = Proteina("nom_proteina", "id_proteina");
-        
-        atomo.set_coordenada(coo);    
-        aa.add_atomo(atomo);
-        cadena.add_aminoacido(aa);
-        p.add_cadena(cadena);
-		proteina.push_back(p);
-     
     cout << "---------------------" << endl;
 	cout << "PROTEINAS INGRESADAS" << endl;
 	cout << "---------------------" << endl;
@@ -115,7 +38,81 @@ int main () {
 		}
 		cout << "---------------------" << endl;
 	}
-	imprimir_datos_proteina();
+}
+
+
+
+int main () {
+	list<Proteina> proteina;
+
+	int num_prote;
+	string id_prote;
+	string nom_prote;
+
+	string let_cad;
+	int num_cad;
+
+	string nom_aa;
+	int num_aa;
+	int num_aas;
+	
+	string nom_atomo;
+	int num_atomo;
+	int num_atomos;
+
+	float x;
+	float y;
+	float z;
+	
+	cout <<"¿Cuantas proteinas ingresará?: "; cin>>num_prote;
+
+	for(int i=0; i<num_prote; i++){
+		cout <<"¿Id de proteina? : "; cin>>id_prote;
+		cout <<"¿Nombre de proteina? : "; cin>>nom_prote;				
+		Proteina p = Proteina(nom_prote, id_prote);
+
+		cout <<"¿Cuantas cadenas tiene su proteina? : "; cin>>num_cad;
+		for(int j=0; j<num_cad; j++){
+			cout <<"¿Letra de Cadena? : "; cin>>let_cad;
+			Cadena c = Cadena(let_cad);
+			cout <<"¿Cuantos AA tiene su cadena? : "; cin>>num_aas;
+			for(int k=0; k<num_aas; k++){
+				cout <<"¿Siglas de su AA? : "; cin>>nom_aa;
+				cout <<"¿Numero de su AA? : "; cin>>num_aa;
+				Aminoacido aa = Aminoacido(nom_aa, num_aa);
+				
+				cout <<"¿Cuantos Atomos tiene su AA? : "; cin>>num_atomos;
+				for(int l=0; l<num_atomos; l++){
+					cout <<"¿Nombre de su Atomo del AA? : "; cin>>nom_atomo;
+					cout <<"¿Numero de su Atomo del AA? : "; cin>>num_atomo;
+					Atomo atomo = Atomo(nom_atomo, num_atomo);
+					cout <<"¿Coordenada x del Atomo? : "; cin>>x;
+					cout <<"¿Coordenada y del Atomo? : "; cin>>y;
+					cout <<"¿Coordenada z del Atomo? : "; cin>>z;
+					Coordenada coo = Coordenada(x, y, z);
+                    atomo.set_coordenada(coo);
+                    aa.add_atomo(atomo);
+				}
+                c.add_aminoacido(aa);
+
+			}
+            p.add_cadena(c);
+		}
+        proteina.push_back(p);
+    }
+        //Coordenada coo = Coordenada (0,0,4);
+        //Atomo atomo = Atomo ("nom_atom", 123);
+        //Aminoacido aa = Aminoacido("nom_aa", 12323);
+        //Cadena cadena = Cadena("letra_cad");
+        //Proteina p = Proteina("nom_proteina", "id_proteina");
+        //atomo.set_coordenada(coo);    
+        //aa.add_atomo(atomo);
+        //cadena.add_aminoacido(aa);
+        //p.add_cadena(cadena);
+		
+     
+    
+	    imprimir_datos_proteina(proteina);
 
 
     return 0;
